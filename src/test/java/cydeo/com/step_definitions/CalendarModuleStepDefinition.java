@@ -1,13 +1,31 @@
 package cydeo.com.step_definitions;
 
+import cydeo.com.pages.LoginPage;
+import cydeo.com.utilities.ConfigurationReader;
+import cydeo.com.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class CalendarModule {
-    @Given("User is on the login page")
-    public void userIsOnTheLoginPage() {
+public class CalendarModuleStepDefinition {
+
+    LoginPage loginPage = new LoginPage();
+
+
+    @Given("User navigates to the login page")
+    public void userNavigatesToTheLoginPage() {
+        String url = ConfigurationReader.getProperty("MeetSkyUrl");
+        Driver.getDriver().get(url);
+    }
+
+    @When("User log in with valid credentials")
+    public void userLogInWithValidCredentials() {
+        String username = ConfigurationReader.getProperty("username");
+        String password = ConfigurationReader.getProperty("password");
+        loginPage.inputUsername.sendKeys(username);
+        loginPage.inputPassword.sendKeys(password);
+        loginPage.LogInButton.click();
     }
 
     @When("User clicks on the Calendar module")
@@ -94,4 +112,6 @@ public class CalendarModule {
     @Then("User is able to delete the event")
     public void userIsAbleToDeleteTheEvent() {
     }
+
+
 }

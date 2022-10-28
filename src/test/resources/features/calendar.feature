@@ -1,28 +1,37 @@
+@wip
 Feature: Calendar Module
 
+  @ETSKY-838
   Scenario: User can display daily calendar view
-    Given User is on the login page
+    Given User navigates to the login page
+    When User log in with valid credentials
     When User clicks on the Calendar module
     And User clicks on the calendar icon
     And User clicks on the Day option
     Then Daily calendar view should be displayed
 
+  @ETSKY-839
   Scenario: User can display weekly calendar view
-    Given User is on the login page
+    Given User navigates to the login page
+    When User log in with valid credentials
     When User clicks on the Calendar module
     And User clicks on the calendar icon
     And User clicks on the Week option
     Then Weekly calendar view should be displayed
 
+  @ETSKY-840
   Scenario: User can display monthly calendar view
-    Given User is on the login page
+    Given User navigates to the login page
+    When User log in with valid credentials
     When User clicks on the Calendar module
     And User clicks on the calendar icon
     And User clicks on the Month option
     Then Monthly calendar view should be displayed
 
+  @ETSKY-841
   Scenario: User can create a new event under the Calendar module and see it on the Monthly Calendar view
-    Given User is on the login page
+    Given User navigates to the login page
+    When User log in with valid credentials
     When User clicks on the Calendar module
     And User clicks on the +New event option
     And User enters event title
@@ -32,8 +41,10 @@ Feature: Calendar Module
     Then User is able to create a new event
     Then User can see the new event on the monthly calendar view
 
+  @ETSKY-842
   Scenario: User can delete any event through the Monthly Calendar view by clicking on the event and then using “more” option
-    Given User is on the login page
+    Given User navigates to the login page
+    When User log in with valid credentials
     When User clicks on the Calendar module
     And User clicks on the calendar icon
     And User clicks on the Month option
