@@ -1,5 +1,6 @@
 package cydeo.com.step_definitions;
 
+import cydeo.com.pages.CalendarPage;
 import cydeo.com.pages.LoginPage;
 import cydeo.com.utilities.ConfigurationReader;
 import cydeo.com.utilities.Driver;
@@ -7,10 +8,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class CalendarModuleStepDefinition {
 
     LoginPage loginPage = new LoginPage();
+    CalendarPage calendarPage = new CalendarPage();
 
 
     @Given("User navigates to the login page")
@@ -28,56 +31,74 @@ public class CalendarModuleStepDefinition {
         loginPage.LogInButton.click();
     }
 
-    @When("User clicks on the Calendar module")
+    @And("User clicks on the Calendar module")
     public void userClicksOnTheCalendarModule() {
+        calendarPage.calendarModule.click();
     }
 
     @And("User clicks on the calendar icon")
     public void userClicksOnTheCalendarIcon() {
+        calendarPage.calendarIcon.click();
     }
 
     // Daily Calendar view
     @And("User clicks on the Day option")
     public void userClicksOnTheDayOption() {
+        calendarPage.dayOption.click();
     }
 
     @Then("Daily calendar view should be displayed")
     public void dailyCalendarViewShouldBeDisplayed() {
+        Assert.assertTrue(calendarPage.dailyCalendarView.isDisplayed());
     }
 
     // Weekly calendar view
     @And("User clicks on the Week option")
     public void userClicksOnTheWeekOption() {
+        calendarPage.weekOption.click();
     }
 
     @Then("Weekly calendar view should be displayed")
     public void weeklyCalendarViewShouldBeDisplayed() {
+        Assert.assertTrue(calendarPage.weeklyCalendarView.isDisplayed());
     }
 
     // Monthly calendar view
     @And("User clicks on the Month option")
     public void userClicksOnTheMonthOption() {
+        calendarPage.monthOption.click();
     }
 
     @Then("Monthly calendar view should be displayed")
     public void monthlyCalendarViewShouldBeDisplayed() {
+        Assert.assertTrue(calendarPage.monthlyCalendarView.isDisplayed());
     }
 
     // New event
     @And("User clicks on the +New event option")
     public void userClicksOnTheNewEventOption() {
+        calendarPage.newEventButton.click();
     }
 
     @And("User enters event title")
     public void userEntersEventTitle() {
+        calendarPage.inputEventTitle.sendKeys("My event");
     }
 
     @And("User enters valid starting date and time")
     public void userEntersValidStartingDateAndTime() {
+        calendarPage.inputStartingDate.click();
+        calendarPage.selectNewEventStartingTimeHour.click();
+        calendarPage.selectNewEventStartingTimeMinutes.click();
+        calendarPage.pickDateButton.click();
+        calendarPage.selectNewEventStartingDate.click();
+        calendarPage.OkButtonAfterSelectingStartingDate.click();
+
     }
 
     @And("User enters valid ending date and time")
     public void userEntersValidEndingDateAndTime() {
+        calendarPage.inputEndingDate.click();
     }
 
     @And("User clicks on the Save button")
