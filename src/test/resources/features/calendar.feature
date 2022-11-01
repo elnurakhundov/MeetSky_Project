@@ -1,6 +1,6 @@
+
 @wip
 Feature: Calendar Module
-
   @ETSKY-838
   Scenario: User can display daily calendar view
     Given User navigates to the login page
