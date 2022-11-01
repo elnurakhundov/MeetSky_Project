@@ -1,6 +1,7 @@
+@wip
 Feature: Calendar Module
 
-  @ETSKY-838, @wip
+  @ETSKY-838
   Scenario: User can display daily calendar view
     Given User navigates to the login page
     When User log in with valid credentials
@@ -9,7 +10,7 @@ Feature: Calendar Module
     And User clicks on the Day option
     Then Daily calendar view should be displayed
 
-  @ETSKY-839, @wip
+  @ETSKY-839
   Scenario: User can display weekly calendar view
     Given User navigates to the login page
     When User log in with valid credentials
@@ -18,7 +19,7 @@ Feature: Calendar Module
     And User clicks on the Week option
     Then Weekly calendar view should be displayed
 
-  @ETSKY-840, @wip
+  @ETSKY-840
   Scenario: User can display monthly calendar view
     Given User navigates to the login page
     When User log in with valid credentials
@@ -37,7 +38,6 @@ Feature: Calendar Module
     And User enters valid starting date and time
     And User enters valid ending date and time
     And User clicks on the Save button
-    Then User is able to create a new event
     Then User can see the new event on the monthly calendar view
 
   @ETSKY-842
@@ -50,6 +50,6 @@ Feature: Calendar Module
     And User clicks on the created new event through the monthly calendar view
     And User clicks on the More option
     And User clicks on the ... option
-    And User clicks on the delete option
-    Then User is able to delete the event
+    Then User clicks on the delete option and deletes the event
+
 

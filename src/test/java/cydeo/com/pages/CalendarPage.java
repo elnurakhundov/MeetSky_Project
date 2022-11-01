@@ -40,7 +40,7 @@ public class CalendarPage {
     @FindBy(xpath = "//input[@placeholder='Event title']")
     public WebElement inputEventTitle;
 
-    @FindBy(xpath = ("(//input[@name='date'])[2])"))
+    @FindBy(xpath = ("(//input[@name='date'])[2]"))
     public WebElement inputStartingDate;
 
 
@@ -53,15 +53,44 @@ public class CalendarPage {
     @FindBy(xpath = "//button[@class='mx-btn mx-btn-text']")
     public WebElement pickDateButton;
 
-    @FindBy (xpath = "//td[@title='2022-11-02']")
+    @FindBy (xpath = "//td[@title='2022-11-01']")
     public WebElement selectNewEventStartingDate;
 
 
     @FindBy(xpath = "//button[@class='mx-btn mx-datepicker-btn-confirm']")
-    public WebElement OkButtonAfterSelectingStartingDate;
+    public WebElement okButtonNewEvent;
 
-    @FindBy(xpath = ("(//input[@name='date'])[3])"))
+    @FindBy(xpath = ("(//input[@name='date'])[3]"))
     public WebElement inputEndingDate;
+
+    @FindBy(xpath = "//li[@data-index='13']")
+    public WebElement selectNewEventEndingTimeHour;
+
+    @FindBy(xpath = "(//li[@data-index='0'])[2]")
+    public WebElement selectNewEventEndingTimeMinutes;
+
+    @FindBy (xpath = "//td[@title='2022-11-03']")
+    public WebElement selectNewEventEndingDate;
+
+
+    @FindBy(xpath = "//button[@class='primary']")
+    public WebElement saveButtonNewEvent;
+
+
+    @FindBy(xpath = "//a[contains(@class,'fc-daygrid-event')]")
+    public WebElement newEventLink;
+
+    @FindBy(xpath = "//div[@class='popover__wrapper']")
+    public WebElement newEventPopUpWindow;
+
+    @FindBy(xpath = "(//div[@class='event-popover__buttons']//button)[1]")
+    public WebElement moreOptionNewEvent;
+
+    @FindBy(xpath = "(//span[@class='material-design-icon dots-horizontal-icon'])[2]")
+    public WebElement threeDotsOptionNewEvent;
+
+    @FindBy(xpath = "//span[.='Delete']")
+    public WebElement deleteOptionNewEvent;
 
 
 

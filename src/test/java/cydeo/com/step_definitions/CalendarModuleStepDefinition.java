@@ -9,11 +9,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CalendarModuleStepDefinition {
 
     LoginPage loginPage = new LoginPage();
     CalendarPage calendarPage = new CalendarPage();
+
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
 
 
     @Given("User navigates to the login page")
@@ -88,51 +92,60 @@ public class CalendarModuleStepDefinition {
     @And("User enters valid starting date and time")
     public void userEntersValidStartingDateAndTime() {
         calendarPage.inputStartingDate.click();
+        wait.until(ExpectedConditions.elementToBeClickable(calendarPage.selectNewEventStartingTimeHour));
         calendarPage.selectNewEventStartingTimeHour.click();
+       // wait.until(ExpectedConditions.elementToBeClickable(calendarPage.selectNewEventStartingTimeMinutes));
         calendarPage.selectNewEventStartingTimeMinutes.click();
         calendarPage.pickDateButton.click();
         calendarPage.selectNewEventStartingDate.click();
-        calendarPage.OkButtonAfterSelectingStartingDate.click();
+        calendarPage.okButtonNewEvent.click();
 
     }
 
     @And("User enters valid ending date and time")
-    public void userEntersValidEndingDateAndTime() {
+    public void userEntersValidEndingDateAndTime() throws InterruptedException {
         calendarPage.inputEndingDate.click();
+       // wait.until(ExpectedConditions.elementToBeClickable(calendarPage.selectNewEventEndingTimeHour));
+        Thread.sleep(2000);
+        calendarPage.selectNewEventEndingTimeHour.click();
+        calendarPage.selectNewEventEndingTimeMinutes.click();
+        calendarPage.pickDateButton.click();
+        calendarPage.selectNewEventEndingDate.click();
+        calendarPage.okButtonNewEvent.click();
     }
 
     @And("User clicks on the Save button")
     public void userClicksOnTheSaveButton() {
+        calendarPage.saveButtonNewEvent.click();
     }
 
-    @Then("User is able to create a new event")
-    public void userIsAbleToCreateANewEvent() {
-    }
 
     @Then("User can see the new event on the monthly calendar view")
     public void userCanSeeTheNewEventOnTheMonthlyCalendarView() {
+        calendarPage.newEventLink.isDisplayed();
+        calendarPage.newEventLink.click();
+        calendarPage.newEventPopUpWindow.isDisplayed();
     }
 
     // delete an event
     @And("User clicks on the created new event through the monthly calendar view")
     public void userClicksOnTheCreatedNewEventThroughTheMonthlyCalendarView() {
+        calendarPage.newEventLink.click();
     }
 
     @And("User clicks on the More option")
     public void userClicksOnTheMoreOption() {
+        calendarPage.moreOptionNewEvent.click();
     }
 
     @And("User clicks on the ... option")
     public void userClicksOnTheOption() {
-    }
-
-    @And("User clicks on the delete option")
-    public void userClicksOnTheDeleteOption() {
-    }
-
-    @Then("User is able to delete the event")
-    public void userIsAbleToDeleteTheEvent() {
+        calendarPage.threeDotsOptionNewEvent.click();
     }
 
 
+    @Then("User clicks on the delete option and deletes the event")
+    public void userClicksOnTheDeleteOptionAndDeletesTheEvent() {
+        calendarPage.deleteOptionNewEvent.click();
+    }
 }
