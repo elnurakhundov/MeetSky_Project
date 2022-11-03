@@ -17,7 +17,7 @@ public class CalendarModuleStepDefinition {
     LoginPage loginPage = new LoginPage();
     CalendarPage calendarPage = new CalendarPage();
 
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
 
     @Given("User navigates to the login page")
@@ -94,7 +94,7 @@ public class CalendarModuleStepDefinition {
         calendarPage.inputStartingDate.click();
         wait.until(ExpectedConditions.elementToBeClickable(calendarPage.selectNewEventStartingTimeHour));
         calendarPage.selectNewEventStartingTimeHour.click();
-       // wait.until(ExpectedConditions.elementToBeClickable(calendarPage.selectNewEventStartingTimeMinutes));
+        // wait.until(ExpectedConditions.elementToBeClickable(calendarPage.selectNewEventStartingTimeMinutes));
         calendarPage.selectNewEventStartingTimeMinutes.click();
         calendarPage.pickDateButton.click();
         calendarPage.selectNewEventStartingDate.click();
@@ -105,7 +105,7 @@ public class CalendarModuleStepDefinition {
     @And("User enters valid ending date and time")
     public void userEntersValidEndingDateAndTime() throws InterruptedException {
         calendarPage.inputEndingDate.click();
-       // wait.until(ExpectedConditions.elementToBeClickable(calendarPage.selectNewEventEndingTimeHour));
+        // wait.until(ExpectedConditions.elementToBeClickable(calendarPage.selectNewEventEndingTimeHour));
         Thread.sleep(2000);
         calendarPage.selectNewEventEndingTimeHour.click();
         calendarPage.selectNewEventEndingTimeMinutes.click();
@@ -149,26 +149,4 @@ public class CalendarModuleStepDefinition {
         calendarPage.deleteOptionNewEvent.click();
     }
 
-    @And("User clicks on the File icon")
-    public void userClicksOnTheFileIcon() {
-
-        calendarPage.filesIcon.click();
-    }
-
-    @And("User clicks on the ... on the file")
-    public void userClicksOnTheOnTheFile() throws InterruptedException {
-        calendarPage.threeDotsFile.click();
-        Thread.sleep(2000);
-    }
-
-    @And("User clicks on Rename")
-    public void userClicksOnRename() throws InterruptedException {
-        calendarPage.renameButton.click();
-        Thread.sleep(2000);
-    }
-
-    @Then("User pass a new name")
-    public void userPassANewName() {
-        calendarPage.inputRenameFile.sendKeys("ElnurFile");
-    }
 }
