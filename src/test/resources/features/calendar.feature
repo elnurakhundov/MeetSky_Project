@@ -53,11 +53,3 @@ Feature: Calendar Module
     Then User clicks on the delete option and deletes the event
 
 
-    @run
-    Scenario: Rename file name
-      Given User navigates to the login page
-      When User log in with valid credentials
-      And User clicks on the File icon
-      And User clicks on the ... on the file
-      And User clicks on Rename
-      Then User pass a new name

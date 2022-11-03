@@ -93,19 +93,4 @@ public class CalendarPage {
     public WebElement deleteOptionNewEvent;
 
 
-
-
-    @FindBy (xpath = "(//span[@class = 'innernametext'])[2]")
-    public WebElement inputRenameFile;
-
-    @FindBy (xpath = "(//a[@aria-label = 'Files'])[1]")
-    public WebElement filesIcon;
-
-    @FindBy(xpath = "(//a[@class = 'action action-menu permanent'])[2]")
-    public WebElement threeDotsFile;
-
-    @FindBy(xpath = "//span[@class = 'icon icon-rename']")
-    public WebElement renameButton;
-
-
 }
