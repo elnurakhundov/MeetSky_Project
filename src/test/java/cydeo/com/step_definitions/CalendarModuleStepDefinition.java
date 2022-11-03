@@ -148,4 +148,27 @@ public class CalendarModuleStepDefinition {
     public void userClicksOnTheDeleteOptionAndDeletesTheEvent() {
         calendarPage.deleteOptionNewEvent.click();
     }
+
+    @And("User clicks on the File icon")
+    public void userClicksOnTheFileIcon() {
+
+        calendarPage.filesIcon.click();
+    }
+
+    @And("User clicks on the ... on the file")
+    public void userClicksOnTheOnTheFile() throws InterruptedException {
+        calendarPage.threeDotsFile.click();
+        Thread.sleep(2000);
+    }
+
+    @And("User clicks on Rename")
+    public void userClicksOnRename() throws InterruptedException {
+        calendarPage.renameButton.click();
+        Thread.sleep(2000);
+    }
+
+    @Then("User pass a new name")
+    public void userPassANewName() {
+        calendarPage.inputRenameFile.sendKeys("ElnurFile");
+    }
 }
