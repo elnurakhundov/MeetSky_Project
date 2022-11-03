@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "cydeo/com/step_definitions",
         dryRun = false,
-        tags = "@ETSKY-838",
+        tags = "@wip",
         publish = false
 )
 
