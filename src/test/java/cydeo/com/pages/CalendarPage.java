@@ -77,8 +77,10 @@ public class CalendarPage {
     public WebElement saveButtonNewEvent;
 
 
-    @FindBy(xpath = "//a[contains(@class,'fc-daygrid-event')]")
+    @FindBy(xpath = "//div[@class='fc-event-main']")
     public WebElement newEventLink;
+
+    // //a[contains(@class,'fc-daygrid-event')]
 
     @FindBy(xpath = "//div[@class='popover__wrapper']")
     public WebElement newEventPopUpWindow;

@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CalendarModuleStepDefinition {
 
+
     LoginPage loginPage = new LoginPage();
     CalendarPage calendarPage = new CalendarPage();
 
@@ -24,6 +25,7 @@ public class CalendarModuleStepDefinition {
     public void userNavigatesToTheLoginPage() {
         String url = ConfigurationReader.getProperty("MeetSkyUrl");
         Driver.getDriver().get(url);
+
     }
 
     @When("User log in with valid credentials")
@@ -43,12 +45,20 @@ public class CalendarModuleStepDefinition {
     @And("User clicks on the calendar icon")
     public void userClicksOnTheCalendarIcon() {
         calendarPage.calendarIcon.click();
+
     }
 
     // Daily Calendar view
-    @And("User clicks on the Day option")
-    public void userClicksOnTheDayOption() {
-        calendarPage.dayOption.click();
+
+    @And("User clicks on the {string} option")
+    public void userClicksOnTheOption(String calendarType) {
+        if (calendarType.equalsIgnoreCase("day")){
+            calendarPage.dayOption.click();
+        } else if (calendarType.equalsIgnoreCase("week")) {
+            calendarPage.weekOption.click();
+        }else {
+            calendarPage.monthOption.click();
+        }
     }
 
     @Then("Daily calendar view should be displayed")
@@ -57,10 +67,6 @@ public class CalendarModuleStepDefinition {
     }
 
     // Weekly calendar view
-    @And("User clicks on the Week option")
-    public void userClicksOnTheWeekOption() {
-        calendarPage.weekOption.click();
-    }
 
     @Then("Weekly calendar view should be displayed")
     public void weeklyCalendarViewShouldBeDisplayed() {
@@ -68,11 +74,6 @@ public class CalendarModuleStepDefinition {
     }
 
     // Monthly calendar view
-    @And("User clicks on the Month option")
-    public void userClicksOnTheMonthOption() {
-        calendarPage.monthOption.click();
-    }
-
     @Then("Monthly calendar view should be displayed")
     public void monthlyCalendarViewShouldBeDisplayed() {
         Assert.assertTrue(calendarPage.monthlyCalendarView.isDisplayed());
@@ -122,9 +123,11 @@ public class CalendarModuleStepDefinition {
 
     @Then("User can see the new event on the monthly calendar view")
     public void userCanSeeTheNewEventOnTheMonthlyCalendarView() {
-        calendarPage.newEventLink.isDisplayed();
+
+        Assert.assertTrue(calendarPage.newEventLink.isDisplayed());
         calendarPage.newEventLink.click();
-        calendarPage.newEventPopUpWindow.isDisplayed();
+        Assert.assertTrue(calendarPage.newEventPopUpWindow.isDisplayed());
+
     }
 
     // delete an event
@@ -145,8 +148,11 @@ public class CalendarModuleStepDefinition {
 
 
     @Then("User clicks on the delete option and deletes the event")
-    public void userClicksOnTheDeleteOptionAndDeletesTheEvent() {
+    public void userClicksOnTheDeleteOptionAndDeletesTheEvent() throws InterruptedException {
         calendarPage.deleteOptionNewEvent.click();
+        Thread.sleep(2000);
+        boolean pageSource = Driver.getDriver().getPageSource().contains("My event");
+        Assert.assertFalse(pageSource);
     }
 
 }
