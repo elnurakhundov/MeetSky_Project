@@ -6,7 +6,7 @@ Feature: Calendar Module
     When User log in with valid credentials
     And User clicks on the Calendar module
     And User clicks on the calendar icon
-    And User clicks on the Day option
+    And User clicks on the "Day" option
     Then Daily calendar view should be displayed
 
   @ETSKY-839 @wip
@@ -15,7 +15,7 @@ Feature: Calendar Module
     When User log in with valid credentials
     And User clicks on the Calendar module
     And User clicks on the calendar icon
-    And User clicks on the Week option
+    And User clicks on the "Week" option
     Then Weekly calendar view should be displayed
 
   @ETSKY-840 @wip
@@ -24,7 +24,7 @@ Feature: Calendar Module
     When User log in with valid credentials
     And User clicks on the Calendar module
     And User clicks on the calendar icon
-    And User clicks on the Month option
+    And User clicks on the "Month" option
     Then Monthly calendar view should be displayed
 
   @ETSKY-841 @wip
@@ -45,7 +45,7 @@ Feature: Calendar Module
     When User log in with valid credentials
     And User clicks on the Calendar module
     And User clicks on the calendar icon
-    And User clicks on the Month option
+    And User clicks on the "Month" option
     And User clicks on the created new event through the monthly calendar view
     And User clicks on the More option
     And User clicks on the ... option
