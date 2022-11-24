@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "cydeo/com/step_definitions",
         dryRun = false,
-        tags = "@wip",
-        publish = false
+        tags = "@smoke"
+      //  publish = false
 )
 
 public class TestRunner {
